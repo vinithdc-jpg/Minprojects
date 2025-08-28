@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="button">
+        <button onclick="showToast(SuccessMsg)">Sucess</button>
+        <button onclick="showToast(ErrorMsg)">Error</button>
+        <button onclick="showToast(InvaldMsg)">Invalid</button>
+    </div>
+
+    <div id="toastBox">
+
+    </div>
+
+    <script>
+
+        let toastBox = document.getElementById('toastBox')
+        let SuccessMsg = "Successfully submited"
+        let ErrorMsg = "Please fixed Error"
+        let InvaldMsg = "Invalid submited"
+        function showToast(msg){
+            let toast = document.createElement('div');
+            toast.classList.add('toast');
+            toast.innerHTML = msg;
+            toastBox.appendChild(toast)
+
+            setTimeout(()=>{
+                toast.remove();
+            },6000);
+        }
+    </script>
+</body>
+</html>

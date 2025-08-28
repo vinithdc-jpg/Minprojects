@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="body">
+        <input type="submit" id="submit" onclick="opentab()">
+        <div class="popup">
+            <div class="box">Done</div>
+            <h1>Thank you</h1>
+            <p>Your details was sussccesfully submited</p>
+            <button onclick="opentab()">Ok</button>
+        </div>
+    </div>
+
+    <script>
+        let popup = document.querySelector('.popup')
+        var isopen = true
+
+        function opentab(){
+            if(isopen){
+
+                popup.classList.add('open-tab');
+                isopen = false;
+            }else{
+                popup.classList.remove('open-tab')
+                isopen = true;
+            }
+
+        }
+    </script>
+</body>
+</html>

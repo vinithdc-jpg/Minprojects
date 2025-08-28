@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Number</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- 1.Input your birth date  -->
+    <!-- 2.Then Random number will be generated -->
+
+    <h1>Lucky Number</h1>
+
+    <button onclick="RandomNumber()">Generate</button>
+    <p id="display">
+
+    </p>
+    <script>
+        let num = Math.floor(Math.random() * 10000)
+        let display = document.getElementById('display')
+        function RandomNumber() {
+
+            display.innerText = num
+            setInterval(() => {
+                display.innerText = ""
+            }, 5000);
+
+        }
+
+    </script>
+</body>
+
+</html>

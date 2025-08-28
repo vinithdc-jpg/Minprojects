@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <h1>Vinith</h1>
+      </div>
+      <div class="details">
+          <ul>
+            <li>Home</li>
+            <li>details</li>
+            <li>About us</li>
+          </ul>
+          <button onclick="login()" id="sigh">color</button>
+      </div>
+    </nav>
+    <header>
+      <div class="color">
+        <h1 class="text">Color</h1>
+      </div>
+       <div class="color">
+        <h1>Names</h1>
+        <h1 class="name"></h1>
+      </div>
+    </header>
+  </header>
+  <script>
+    const body = document.body;
+    let text = document.querySelector('.text')
+
+    function login(){
+      let backgroundcloor = randomClor()
+      body.style.background = backgroundcloor;
+      text.innerText = backgroundcloor;
+    }
+    function randomClor(){
+      let letter = '0123456789ABCDEF'
+      var color = '#'
+      for(let i = 0; i < 6; i++){
+        color += letter[Math.floor(Math.random() * 16)]
+      }
+      return color;
+    }
+    
+    let name = ["vinith", "rupesh","varun","harsha","nishal","puneeth","danush","mahi"]
+    
+    let nameDisplay = document.querySelector('.name')
+    for(let i = 0; i < name.length;i++){
+      let display = name
+      nameDisplay.innerHTML = display
+      
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="display">
+            <input type="text" name="display" id="result">
+        </div>
+        <div class="btn">
+            <button id="btn1" onclick="result.value += '1'">1</button>
+            <button id="btn2" onclick="result.value += '2'">2</button>
+            <button id="btn3" onclick="result.value += '3'">3</button>
+            <button id="btn+" onclick="result.value += '+'">+</button>
+            <button id="btn4" onclick="result.value += '4'">4</button>
+            <button id="btn5" onclick="result.value += '5'">5</button>
+            <button id="btn6" onclick="result.value += '6'">6</button>
+            <button id="btn-" onclick="result.value += '-'">-</button>
+            <button id="btn7" onclick="result.value += '7'">7</button>
+            <button id="btn8" onclick="result.value += '8'">8</button>
+            <button id="btn9" onclick="result.value += '9'">9</button>
+            <button id="btn/" onclick="result.value += '/'">/</button>
+            <button id="btn0" onclick="result.value += '0'">0</button>
+            <button id="btnC" onclick="result.value = ''">C</button>
+        
+           <button onclick="result.value = eval(result.value)">=</button>
+           <button onclick="result.value += '.'">.</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <input type="password" id="password" placeholder="Password">
+        <p class="hide" onclick="showorhide()">show</p>
+    </div>
+
+    <script>
+        let value = document.getElementById('password')
+        let hide = document.querySelector('hide')
+
+        function showorhide(){
+            if(value.type == "password"){
+                value.type = "text"
+                hide.style.color = "yellow"
+            }
+            else{
+                value.type = "password"
+            }
+        }
+    </script>
+</body>
+</html>

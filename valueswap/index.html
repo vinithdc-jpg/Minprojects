@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+
+            <label for="value1">Value1 :</label>
+            <input type="text" id="value1">
+        </div>
+        <div class="box">
+
+            <label for="value2">Value2</label>
+            <input type="text" id="value2">
+        </div>
+
+        <div class="btn">
+            <button onclick="swap()">Swap</button>
+            <button onclick="Clear()">Clear</button>
+        </div>
+    </div>
+    <script>
+        const val1 = document.getElementById('value1')
+        const val2 = document.getElementById('value2')
+
+        function swap() {
+          let a = val1.value
+          let b = val2.value
+
+          val1.value = b
+          val2.value = a
+        }
+
+        function Clear() {
+            val1.value = ""
+            val2.value = ""
+        }
+    </script>
+</body>
+</html>

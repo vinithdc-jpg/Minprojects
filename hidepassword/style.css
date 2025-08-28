@@ -1,0 +1,23 @@
+body{
+    background-color: #66028e;
+}
+
+.container{
+    background-color: #fff;
+    width: 40vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 33px;
+    padding: 7px;
+    margin: 200px auto;
+    border-radius: 9px;
+}
+
+.container input{
+    padding: 5px;
+    margin-right: 10px;
+    outline: 0;
+    border: none;
+    font-size: 17px;
+}

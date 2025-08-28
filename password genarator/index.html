@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="box">
+        <h1>Genarate a</h1>
+        <div class="box2">
+
+            <h1 class="random">Random Password</h1>
+        </div>
+        <div class="input">
+
+            <input type="text" placeholder="password" class="input">
+            <img src="copy-svgrepo-com.svg" onclick="copy()">
+        </div>
+        <button onclick="createPassword()">genatate password</button>
+        <button class="clear">clear</button>
+    </div>
+    <script>
+        const inputbox = document.querySelector('input')
+        const leght = 12
+        const clr = document.querySelector('.clear')
+
+        const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXY"
+        const loppercase = "abcdefigklmopqrstuvwxyz"
+        const number = '0123456789'
+        const symbol = '!@#$%^&*(){}<>?'
+
+        const sum = uppercase + loppercase + number + symbol
+
+        function createPassword(){
+            let password = ''
+            password += uppercase[Math.floor(Math.random()* uppercase.length)]
+            password += loppercase[Math.floor(Math.random()* loppercase.length)]
+            password += number[Math.floor(Math.random()* number.length)]
+            password += symbol[Math.floor(Math.random()* symbol.length)]
+
+            while(leght > password.length){
+                password += sum[Math.floor(Math.random()* sum.length)]
+
+            }
+            inputbox.value = password
+        }
+        function copy(){
+            inputbox.select()
+            document.execCommand("copy")
+        }
+
+       clr.addEventListener('click', () =>{
+        if(inputbox.value === ""){
+            alert("Doest not have any element")
+        }else{
+            inputbox.value = ""
+        }
+       })
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="watch">
+        <div class="time">
+            <h2 id="displayTime">00:00:00</h2>
+        </div>
+        <div class="btn">
+
+            <button onclick="stopTime()">pause</button>
+            <button onclick="startTime()">play</button>
+            <button onclick="clearTime()">reset</button>
+        </div>
+    </div>
+
+    <script>
+        let [hour, minute, second] = [0, 0, 0]
+        let display = document.getElementById('displayTime')
+        let timer = null
+        function watch(){
+            second++
+            if(second == 60){
+                second = 0
+                minute++
+                if(minute == 0){
+                    minute = 0
+                    hour++
+                }
+            }
+
+            let h = hour < 10 ? "0" + hour: hour;
+            let m = minute < 10 ? "0" + minute:minute;
+            let s = second < 10 ? "0" + second:second;
+
+            display.innerHTML = h + ":" + m + ":" + s
+        }
+
+        function startTime(){
+            if(timer!== null){
+                clearInterval(timer)
+            }
+            timer = setInterval(watch,1000)
+        }
+
+        function stopTime(){
+            clearInterval(timer)
+        }
+
+        function clearTime(){
+            clearInterval(timer);
+            [hour, minute, second] = [0, 0, 0];
+            display.innerHTML = "00:00:00";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+body {
+    background-color: #565a71;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: #0e010c;
+    border-radius: 9px;
+    width: 25vw;
+    height: 233px;
+    margin-top: 233px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box input {
+    margin: 17px;
+    padding: 9px;
+    border-radius: 9px;
+    border: none;
+    outline: none;
+}
+
+.btn button {
+    padding: 10px;
+    background-color: #0842f1;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 9px;
+    color: #fff;
+}

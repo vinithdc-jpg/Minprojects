@@ -1,0 +1,173 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background: #582801;
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+}
+
+header .navbar{
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+button{
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+img{
+    width: 100%;
+}
+
+.section-content{
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar .nav-logo .logo-text{
+    color: white;
+}
+
+.navbar .nav-menu .nav-link{
+    padding: 10px 18px;
+    border-radius: 20px;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.navbar .nav-menu .nav-link:hover{
+    color: #582801;
+    background: #e78003;
+}
+
+.navbar .nav-menu{
+    display: flex;
+    gap: 10px;
+}
+
+
+.hero-section{
+    background: #582801;
+    min-height: 100vh;
+}
+
+.hero-section .section-contact{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+    justify-content: space-between;
+}
+
+.hero-section .hero-details .tittle{
+    font-size: 20px;
+}
+
+.hero-section .hero-details .button{
+    padding: 10px 26px;
+    color: black;
+    background: #e78003;
+    border-radius: 20px;
+}
+
+.hero-section .hero-details .button:hover{
+    color: white;
+    border-color: white;
+    background: transparent;
+}
+
+.about-section{
+    padding: 120px 0;
+    background-color: lightpink;
+}
+
+.section-tille{
+    text-align: center;
+    padding: 50px 0 90px;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+.section-tille::after{
+    content: "";
+    width: 80px;
+    height: 5px;
+    display: block;
+}
+
+.about-section .section-contect{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.about-section .about-image-wrapper .about-image{
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.menu-section{
+    background-color: rgb(129, 106, 106);
+    color: white;
+}
+
+.menu-section .menu-list{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 110px;
+    justify-content: space-between;
+}
+
+.menu-section .menu-list .menu-item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: calc(100% / 3 - 110px);
+}
+
+.menu-section .menu-list .menu-item .menu-image{
+    max-width: 83%;
+    aspect-ratio: 1;
+}
+
+.testimonials-section{
+    padding: 50px 0 100px;
+    background-color: lightpink;
+}
+
+.testimonials-section .testinomial{
+    display: flex;
+    padding: 35px;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.testimonials-section .testinomial .user-image{
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    margin-bottom: 50px;
+    border-radius: 50%;
+}

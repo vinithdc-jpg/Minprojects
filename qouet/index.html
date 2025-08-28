@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Quoet of day</h2>
+        <blockquote id="quote">Loding....</blockquote>
+        <span id="author">Loading...</span>
+        <div>
+            <button onclick="getQuoet(get_url)">new qouet</button>
+            <button>tweet</button>
+        </div>
+    </div>
+
+    <script>
+        let qut = document.getElementById('quote')
+        let aut = document.getElementById('author')
+
+        const get_url = 'https://dummyjson.com/quotes/random'
+
+        async function getQuoet(url) {
+            const respose = await fetch(url)
+            var data = await respose.json()
+            qut.innerHTML = data.quote;
+            aut.innerHTML = data.author;
+        }
+
+    </script>
+</body>
+
+</html>
