@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Reminder</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f3f5f9;
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .container {
+            width: 700px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr auto;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        button {
+            padding: 12px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #3c9640;
+        }
+
+        .card {
+            background: #fafafa;
+            border-left: 5px solid #4CAF50;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 8px;
+        }
+
+        .count {
+            color: #ff5722;
+            font-weight: bold;
+        }
+
+        .alert {
+            color: red;
+            font-weight: bold;
+        }
+
+        .delete {
+            background: #e53935;
+            margin-top: 10px;
+        }
+
+        .delete:hover {
+            background: #c62828;
+        }
+
+        .empty {
+            text-align: center;
+            color: gray;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🎂 Birthday Reminder</h1>
+
+        <div class="form">
+
+            <input type="text" id="name" placeholder="Enter Name">
+
+            <input type="date" id="birthday">
+
+            <button onclick="addBirthday()">Add</button>
+
+        </div>
+
+        <div id="birthdayList"></div>
+
+    </div>
+
+    <script>
+
+        let birthdays = JSON.parse(localStorage.getItem("birthdays")) || [];
+
+        function saveData() {
+            localStorage.setItem("birthdays", JSON.stringify(birthdays));
+        }
+
+        function daysUntilBirthday(dateString) {
+
+            const today = new Date();
+
+            const birth = new Date(dateString);
+
+            let nextBirthday = new Date(
+                today.getFullYear(),
+                birth.getMonth(),
+                birth.getDate()
+            );
+
+            if (nextBirthday < today) {
+                nextBirthday.setFullYear(today.getFullYear() + 1);
+            }
+
+            const diff = nextBirthday - today;
+
+            return Math.ceil(diff / (1000 * 60 * 60 * 24));
+
+        }
+
+        function render() {
+
+            const list = document.getElementById("birthdayList");
+
+            list.innerHTML = "";
+
+            if (birthdays.length === 0) {
+
+                list.innerHTML = "<p class='empty'>No Birthdays Added.</p>";
+
+                return;
+
+            }
+
+            birthdays.sort((a, b) => daysUntilBirthday(a.date) - daysUntilBirthday(b.date));
+
+            birthdays.forEach((person, index) => {
+
+                const days = daysUntilBirthday(person.date);
+
+                const card = document.createElement("div");
+
+                card.className = "card";
+
+                card.innerHTML = `
+            <h3>${person.name}</h3>
+
+            <p>Birthday : ${person.date}</p>
+
+            <p class="count">🎉 ${days} day(s) remaining</p>
+
+            ${days <= 7 ? "<p class='alert'>Upcoming Birthday 🎈</p>" : ""}
+
+            <button class="delete" onclick="removeBirthday(${index})">
+                Delete
+            </button>
+        `;
+
+                list.appendChild(card);
+
+            });
+
+        }
+
+        function addBirthday() {
+
+            const name = document.getElementById("name").value.trim();
+
+            const date = document.getElementById("birthday").value;
+
+            if (name === "" || date === "") {
+
+                alert("Please fill all fields.");
+
+                return;
+
+            }
+
+            birthdays.push({
+                name: name,
+                date: date
+            });
+
+            saveData();
+
+            render();
+
+            document.getElementById("name").value = "";
+
+            document.getElementById("birthday").value = "";
+
+        }
+
+        function removeBirthday(index) {
+
+            birthdays.splice(index, 1);
+
+            saveData();
+
+            render();
+
+        }
+
+        render();
+
+    </script>
+
+</body>
+
+</html>
