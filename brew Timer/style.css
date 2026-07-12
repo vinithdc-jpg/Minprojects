@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #ece5dd;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.container {
+    width: 700px;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+}
+
+h1,
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #5D4037;
+}
+
+.timer-section {
+    text-align: center;
+}
+
+select {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 250px;
+}
+
+#timer {
+    font-size: 60px;
+    font-weight: bold;
+    color: #6D4C41;
+    margin: 20px;
+}
+
+.buttons button {
+    margin: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background: #6D4C41;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #4E342E;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+.recipe {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f8f5f2;
+    border-left: 6px solid #795548;
+    border-radius: 10px;
+}
+
+.favorite {
+    color: red;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
